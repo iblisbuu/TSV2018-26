@@ -79,7 +79,8 @@ if (!is_admin()){
         <div class="controls">
             <form id="main-form" method="post" action="">
                 <div class="col-xs-6 col-md-4">
-                 <input type="text" name="search" class="form-control" placeholder="Search" />
+                    
+                 <input type="text" name="search" class="form-control" placeholder="ID Member" />
                 </div>
                 
                     <td>

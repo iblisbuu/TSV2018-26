@@ -16,7 +16,7 @@
         </head>
         <body>
 
-            <header><a href="admin" style="float: right; margin-top: -17px; margin-right: 19px; color: #4267b2;" class="btn btn-default " role="button"">Login</a>
+            <header><a id="login" href="admin" style="float: right; margin-top: -12px; margin-right: 34px; color: white; font-weight: bold;font-size: 16px" >   &nbsp;Login&nbsp;</a>
                </header>
             <div class="container">
             <div id="carousel-id" class="carousel slide" data-ride="carousel">
