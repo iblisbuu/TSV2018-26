@@ -11,15 +11,15 @@ var app = express();
 var baseUrl = "http://192.168.1.22";
 
 // Créé directement les pages HTML à partir de templates pug
-app.set('views', './views');
-app.set('view engine', 'pug');
-
-app.use(express.static('public'));
-app.use('/static', express.static(__dirname + '/public'));
-
-app.get('/', function(req, res) {
-  res.render('index')
-});
+// app.set('views', './views');
+// app.set('view engine', 'pug');
+//
+// app.use(express.static('public'));
+// app.use('/static', express.static(__dirname + '/public'));
+//
+// app.get('/', function(req, res) {
+//   res.render('index')
+// });
 
 app.use('/mesures.json', function (req, res, next) {
   request({url: baseUrl + '/mesures.json',timeout:2000}, function (error, response, body) {
