@@ -16,13 +16,14 @@ Testing TSV2018-26
 ### URI: http://ipaddress:10110/transaction/add
 ### Client: Postman
 ### JSON Request:
-* {"id_pay_member":"0070158406","id_collect_member":"0070151006","amountofmoney":20000}
+* {"id_pay_member":"01234","id_collect_member":"12345","amountofmoney":20000}
 ### JSON Response:
 * {
-    "id_pay_member": "B1400702",
-    "id_collect_member": "002555",
+    "id_pay_member": "student",
+    "id_collect_member": "service",
     "amountofmoney": "20000",
-    "type_payment": "+"
+    "type_payment": "-",
+    "message": "Done"
 }
 ### Commanpromt Response:
 * F:\Dropbox\NodeJS\serverREST>node server.js
