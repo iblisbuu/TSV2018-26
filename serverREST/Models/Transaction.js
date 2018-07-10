@@ -23,7 +23,7 @@ var Transaction={
 		return db.query("SELECT * FROM payments WHERE id_pay_member=? OR id_collect_member=?",[id,id],callback);
 	},
 	checkServiceStaff:function(service,callback){
-		return db.query("SELECT * FROM cards JOIN members ON cards.id_member = members.id_member WHERE cards.id_Card = ? AND members.isService = '1'",[service],callback);
+		return db.query("SELECT * FROM cards JOIN members ON cards.id_member = members.id_member WHERE cards.id_Card = ? AND members.is_service_staff = 'yes'",[service],callback);
 	},
 	checkUser:function(card,callback){
 		return db.query("SELECT * FROM cards JOIN members ON cards.id_member = members.id_member WHERE id_Card = ?",[card],callback);
