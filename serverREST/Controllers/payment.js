@@ -34,7 +34,7 @@ router.post('/add', function(req, res, next) {
                   balance_user = rows[0]['balance'];
                   balance_user = parseInt(balance_user);
                   // then compare balance and amount of money
-                  if (balance_user >= amountofmoney && amountofmoney >= 0) {
+                  if (balance_user >= amountofmoney && amountofmoney > 0) {
                     balance_user_after_transaction = balance_user - amountofmoney;
                     var pay = '{"id_pay_member":"' + id_user + '","id_collect_member":"' + id_service + '","amountofmoney":"' + amountofmoney + '","type_payment":"' + type_payment + '"}';
                     datapay = JSON.parse(pay);
