@@ -81,7 +81,7 @@ if(isset($_POST['get-report'])) {
         <td><?php echo $item['id_pay_member']; ?></td>
         <td><?php echo $item['amountofmoney']; ?></td>
         <td><?php echo $item['type_payment']; ?></td>
-        <?php $datetime = date('d-m-Y',strtotime($item['date_time'])); ?>
+        <?php $datetime = date('d/m/Y H:m:s',strtotime($item['date_time'])); ?>
         <td><?php echo $datetime; ?></td>
       </tr>
       <?php } ?>

@@ -136,7 +136,7 @@
                     <td><?php echo $item['amountofmoney']; ?></td>
                     <td><?php echo $item['type_payment']; ?></td>
                     <?php
-                    $datetime = date('d-m-Y H:i:s',strtotime($item['date_time']));?>
+                    $datetime = date('d/m/Y H:m:s',strtotime($item['date_time']));?>
                     <td><?php echo $datetime; ?></td>
 
                 </tr>
