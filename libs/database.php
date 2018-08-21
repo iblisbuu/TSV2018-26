@@ -7,7 +7,7 @@
 	function db_connect(){
 		global $conn;
 		if (!$conn) {
-			$conn = mysqli_connect('localhost','root','','quickpayment2')
+			$conn = mysqli_connect('localhost','root','mysql','quickpayment2')
 					or die ('Không thể kết nối CSDL');
 			mysqli_set_charset($conn, 'UTF-8');
 		}
@@ -53,10 +53,10 @@
 
 	// Hàm tạo câu truy vấn có thêm điều kiện Where
 	function db_create_sql($sql, $filter = array())
-	{    
+	{
 	    // Chuỗi where
 	    $where = '';
-	     
+
 	    // Lặp qua biến $filter và bổ sung vào $where
 	    foreach ($filter as $field => $value){
 	        if ($value != ''){
@@ -64,17 +64,17 @@
 	            $where .= "AND $field = '$value', ";
 	        }
 	    }
-	     
+
 	    // Remove chữ AND ở đầu
 	    $where = trim($where, 'AND');
 	    // Remove ký tự , ở cuối
 	    $where = trim($where, ', ');
-	     
+
 	    // Nếu có điều kiện where thì nối chuỗi
 	    if ($where){
 	        $where = ' WHERE '.$where;
 	    }
-	     
+
 	    // Return về câu truy vấn
 	    return str_replace('{where}', $where, $sql);
 	}
@@ -87,20 +87,20 @@
 	    // Hai biến danh sách fields và values
 	    $fields = '';
 	    $values = '';
-	     
+
 	    // Lặp mảng dữ liệu để nối chuỗi
 	    foreach ($data as $field => $value){
 	        $fields .= $field .',';
 	        $values .= "'".addslashes($value)."',";
 	    }
-	     
+
 	    // Xóa ký từ , ở cuối chuỗi
 	    $fields = trim($fields, ',');
 	    $values = trim($values, ',');
-	     
+
 	    // Tạo câu SQL
 	    $sql = "INSERT INTO {$table}($fields) VALUES ({$values})";
-	     
+
 	    // Thực hiện INSERT
 	    return db_execute($sql);
 	}
@@ -111,20 +111,20 @@
 	    // Hai biến danh sách fields và values
 	    $fields = '';
 	    $values = '';
-	     
+
 	    // Lặp mảng dữ liệu để nối chuỗi
 	    foreach ($data as $field => $value){
 	        $fields .= $field .',';
 	        $values .= "'".addslashes($value)."',";
 	    }
-	     
+
 	    // Xóa ký từ , ở cuối chuỗi
 	    $fields = trim($fields, ',');
 	    $values = trim($values, ',');
-	     
+
 	    // Tạo câu SQL
 	    $sql = "UPDATE {$table}($fields) SET ({$values}) ";
-	     
+
 	    // Thực hiện INSERT
 	    return db_execute($sql);
 	}

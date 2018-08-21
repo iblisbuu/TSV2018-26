@@ -7,8 +7,14 @@
 	        'name'		=> $name,
 	        'balance'	=> $balance
 	    ));
-
 	}
+
+	// function update_balance($balance){
+	//     session_set('ss_user_token', array(
+	//         'balance'	=> $balance
+	//     ));
+	// }
+
 	function is_key(){
         // Gán hàm addslashes để chống sql injection
         $search = addslashes($_POST['search']);
@@ -20,32 +26,32 @@
 	    session_set('ss_search',$search);
 
 	}
-	 
-	//ham kiem tra search 
+
+	//ham kiem tra search
 	function is_search(){
 	    $search = session_get('ss_search');
 	    return $search;
 	}
- 
+
 	//Ham thiet lap da search
 	function set_from($from){
 	    session_set('ss_from',$from);
 
 	}
-	 
-	//ham kiem tra search 
+
+	//ham kiem tra search
 	function is_from(){
 	    $from = session_get('ss_from');
 	    return $from;
 	}
-    
+
 	//Ham thiet lap da search
 	function set_to($to){
 	    session_set('ss_to',$to);
 
 	}
-	 
-	//ham kiem tra search 
+
+	//ham kiem tra search
 	function is_to(){
 	    $to = session_get('ss_to');
 	    return $to;
@@ -54,19 +60,19 @@
 	// Hàm thiết lập xóa search
 	function set_searchout(){
 	    session_delete('ss_search');
-	}	 
+	}
 
 	// Hàm thiết lập đăng xuất
 	function set_logout(){
 	    session_delete('ss_user_token');
 	}
-	 
+
 	// Hàm kiểm tra trạng thái người dùng đã đăng nhập chưa
 	function is_logged(){
 	    $user = session_get('ss_user_token');
 	    return $user;
 	}
-	 
+
 	// Hàm kiểm tra có phải là admin hay không
 	function is_admin(){
 	    $user  = is_logged();
@@ -114,18 +120,19 @@
 	    $user  = is_logged();
 	    return isset($user['id_member']) ? $user['id_member'] : '';
 	}
-	 
+
 	// Lấy user group người dùng hiện tại
 	function get_current_level(){
 	    $user  = is_logged();
 	    return isset($user['ID_UG']) ? $user['ID_UG'] : '';
 	}
-	
+
 	// Lấy balance người dùng hiện tại
 	function get_current_balance(){
 	    $user  = is_logged();
 	    return isset($user['balance']) ? $user['balance'] : '';
 	}
+
 	// Hàm kiểm tra là supper admin
 	function is_supper_admin(){
 	    $user = is_logged();

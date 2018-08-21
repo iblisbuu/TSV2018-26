@@ -1,4 +1,12 @@
 <?php if (!defined('IN_SITE')) die('The request not found'); ?>
+
+<?php
+// Update balance every loading
+$id_current_member = get_current_id();
+$sql_update_balance = "SELECT balance FROM members WHERE id_member='$id_current_member'";
+$balance = db_get_row($sql_update_balance);
+$_SESSION['ss_user_token']['balance'] = $balance['balance'];
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -9,9 +17,9 @@
       <link rel="stylesheet" href="style/css/style.css" >
       <script src="jquery/jquery.js"></script>
       <script src="bootstrap/js/bootstrap.min.js"></script>
-       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet"> 
-      
-         
+       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+
+
     </head>
     <body>
         <div id="container">
@@ -52,7 +60,7 @@
                       Hello <span style="font-weight: bold"> <?php echo get_current_name(); ?> </span>| Balance: <span style="font-weight: bold"> <?php echo get_current_balance(); ?> VND </span>|
                       <a class="btn btn-primary btn-sm" role="button" href="<?php echo base_url('admin/?m=common&a=logout'); ?>">Logout</a>
                   </div>
-        
+
 
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -80,7 +88,7 @@
         <ul  class="nav navbar-nav">
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>">Transactions</a></li>
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'editpass')); ?>">Change password</a></li>
-          
+
         </ul>
         <form class="navbar-form navbar-left">
         <!--   <div class="form-group">
@@ -93,7 +101,7 @@
                       Hello <span style="font-weight: bold"> <?php echo get_current_name(); ?> </span>| Balance: <span style="font-weight: bold"> <?php echo get_current_balance(); ?> VND </span>|
                       <a class="btn btn-primary btn-sm" role="button" href="<?php echo base_url('admin/?m=common&a=logout'); ?>">Logout</a>
                   </div>
-        
+
 
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -137,7 +145,7 @@
                       Hello <span style="font-weight: bold"> <?php echo get_current_name(); ?> </span>| Balance: <span style="font-weight: bold"> <?php echo get_current_balance(); ?> VND </span>|
                       <a class="btn btn-primary btn-sm" role="button" href="<?php echo base_url('admin/?m=common&a=logout'); ?>">Logout</a>
                   </div>
-        
+
 
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -184,7 +192,7 @@
                     Hello <span style="font-weight: bold"> <?php echo get_current_name(); ?> </span>| Balance: <span style="font-weight: bold"> <?php echo get_current_balance(); ?> VND </span>|
                       <a class="btn btn-primary btn-sm" role="button" href="<?php echo base_url('admin/?m=common&a=logout'); ?>">Logout</a>
                   </div>
-        
+
 
         </ul>
       </div><!-- /.navbar-collapse -->
@@ -193,7 +201,7 @@
 
 
 
-            
+
         <?php } ?>
 
 
