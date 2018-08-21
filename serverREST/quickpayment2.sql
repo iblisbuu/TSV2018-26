@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2018 at 10:26 AM
+-- Generation Time: Jul 10, 2018 at 05:03 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -69,8 +69,8 @@ INSERT INTO `members` (`id_member`, `password`, `name`, `sex`, `dayofbirth`, `ph
 ('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'nam', '2018-06-28', 3, '2', 'DB', 0, 'no', 'admin@gmail.com'),
 ('deposit', '21232f297a57a5a743894a0e4a801fc3', 'deposit', 'nam', '2018-07-12', 2, '3', 'C2', 0, 'no', 'deposit@gmail.com'),
 ('iadmin', '21232f297a57a5a743894a0e4a801fc3', 'Initial Admin', 'nam', '1996-02-06', 1224099996, '1', 'DI', 0, NULL, NULL),
-('service', '21232f297a57a5a743894a0e4a801fc3', 'service', 'nu', '2017-06-01', 2, '4', 'B1', 130000, 'yes', 'service@gmail.com'),
-('student', '21232f297a57a5a743894a0e4a801fc3', 'student', 'nam', '2018-07-12', 3, '5', 'CN', 128000, 'no', 'student@gmail.com'),
+('service', '21232f297a57a5a743894a0e4a801fc3', 'service', 'nu', '2017-06-01', 2, '4', 'B1', 128000, 'yes', 'service@gmail.com'),
+('student', '21232f297a57a5a743894a0e4a801fc3', 'student', 'nam', '2018-07-12', 3, '5', 'CN', 112000, 'no', 'student@gmail.com'),
 ('student2', '21232f297a57a5a743894a0e4a801fc3', 'student2', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student2@gmail.com'),
 ('student3', '21232f297a57a5a743894a0e4a801fc3', 'student3', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student3@gmail.com'),
 ('student4', '21232f297a57a5a743894a0e4a801fc3', 'student4', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student4@gmail.com'),
@@ -100,7 +100,25 @@ INSERT INTO `payments` (`date_time`, `id_pay_member`, `id_collect_member`, `amou
 ('2018-07-03 08:00:56', 'student5', 'deposit', 50000, '+'),
 ('2018-07-05 07:57:14', 'student', 'deposit', 100000, '+'),
 ('2018-07-10 05:38:21', 'student', 'service', 1000, '-'),
-('2018-07-10 05:44:11', 'student', 'service', 1000, '-');
+('2018-07-10 05:44:11', 'student', 'service', 1000, '-'),
+('2018-07-10 12:45:53', 'student', 'service', 1000, '-'),
+('2018-07-10 12:51:36', 'student', 'service', 1000, '-'),
+('2018-07-10 12:52:58', 'student', 'service', 1000, '-'),
+('2018-07-10 12:57:51', 'student', 'service', 1000, '-'),
+('2018-07-10 12:59:03', 'student', 'service', 1000, '-'),
+('2018-07-10 13:04:27', 'student', 'service', 1000, '-'),
+('2018-07-10 13:05:07', 'student', 'service', 1000, '-'),
+('2018-07-10 13:05:57', 'student', 'service', 1000, '-'),
+('2018-07-10 13:06:24', 'student', 'service', 1000, '-'),
+('2018-07-10 13:10:26', 'student', 'service', 1000, '-'),
+('2018-07-10 13:11:24', 'student', 'service', 1000, '-'),
+('2018-07-10 13:13:58', 'student', 'service', 1000, '-'),
+('2018-07-10 13:15:58', 'student', 'service', 1000, '-'),
+('2018-07-10 14:06:43', 'student', 'service', 1000, '-'),
+('2018-07-10 14:07:09', 'student', 'service', 1000, '-'),
+('2018-07-10 14:10:36', 'student', 'service', -120000, '-'),
+('2018-07-10 14:15:26', 'student', 'service', 120000, '-'),
+('2018-07-10 14:55:56', 'student', 'service', 1000, '-');
 
 -- --------------------------------------------------------
 
