@@ -8,13 +8,7 @@
 	        'balance'	=> $balance
 	    ));
 	}
-
-	// function update_balance($balance){
-	//     session_set('ss_user_token', array(
-	//         'balance'	=> $balance
-	//     ));
-	// }
-
+	
 	function is_key(){
         // Gán hàm addslashes để chống sql injection
         $search = addslashes($_POST['search']);
