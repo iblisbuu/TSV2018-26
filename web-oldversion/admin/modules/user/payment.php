@@ -94,7 +94,7 @@ if (!is_deposit()){
                 </tr>
             </form>
         <br>
-            <a  href="<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>" class="btn btn-primary btn-sm" role="button" >Back</a>
+            <a  href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>" class="btn btn-primary btn-sm" role="button" >Back</a>
         </div>
         <table cellspacing="0" cellpadding="0" class="table table-hover">
             <thead>

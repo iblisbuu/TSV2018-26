@@ -1,12 +1,12 @@
 <?php if (!defined('IN_SITE')) die ('The request not found'); ?>
- 
+
 <?php
 // Kiểm tra quyền, nếu không có quyền thì chuyển nó về trang logout
 if (!is_deposit()){
     redirect(create_link(base_url('admin'), array('m' => 'common', 'a' => 'logout')));
 }
 ?>
-<?php 
+<?php
 // Biến chứa lỗi
 $error = array();
 // require file xử lý database cho user
@@ -14,7 +14,7 @@ require_once('database/user.php');
 
 // Nếu người dùng submit form
 if (is_submit('add_pay'))
-{   
+{
 
     $id_member = input_post('id_pay_member');
     //$error = db_idmember_validate($id_member);
@@ -52,7 +52,7 @@ if (is_submit('add_pay'))
         {
             // Xóa key re-password ra khoi $data
             //unset($data['re-password']);
-             
+
             // Nếu insert thành công thì thông báo
             // và chuyển hướng về trang danh sách user
 
@@ -64,17 +64,17 @@ if (is_submit('add_pay'))
                 </script>
                 <?php
                 die();
-            
+
         }
     }
 }
 ?>
- 
+
 <?php include_once('widgets/header.php'); ?>
 
 <div class="container">
 <h1 align="center">Nạp Tiền</h1>
- 
+
 
 <center><form id="main-form" method="post" action="">
     <input type="hidden" name="request_name" value="add_pay"/>
@@ -116,7 +116,7 @@ if (is_submit('add_pay'))
 <br>
 <div class="controls">
     <a class="btn btn-primary btn-sm" onclick="$('#main-form').submit()" href="#">Nạp</a>
-    <a class="btn btn-primary btn-sm" href="<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>">Trở về</a>
+    <a class="btn btn-primary btn-sm" href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>">Back</a>
 </div>
 
 <?php include_once('widgets/footer.php'); ?>

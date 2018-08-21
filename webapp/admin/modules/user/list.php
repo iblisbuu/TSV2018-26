@@ -94,7 +94,7 @@ if (!is_admin()){
         <br> -->
 <div class="controls">
     <a class="btn btn-primary btn-sm" role="button" style=" " href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'add')); ?>">Add</a>
-    <a  href="<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>" class="btn btn-primary btn-sm" role="button" >Back</a>
+    <a  href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>" class="btn btn-primary btn-sm" role="button" >Back</a>
 </div>
 
 <table class="table table-hover datatables">

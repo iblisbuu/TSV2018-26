@@ -116,7 +116,7 @@ if (is_submit('add_pay'))
 <br>
 <div class="controls">
     <a class="btn btn-primary btn-sm" onclick="$('#main-form').submit()" href="#">OK</a>
-    <a class="btn btn-primary btn-sm" href="<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>">Back</a>
+    <a class="btn btn-primary btn-sm" href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>">Back</a>
 </div>
 </center>
 </div>

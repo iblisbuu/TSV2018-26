@@ -1,8 +1,8 @@
 <?php if (!defined('IN_SITE')) die ('The request not found');
- 
+
 // Kiểm tra quyền, nếu không có quyền thì chuyển nó về trang logout
 if (is_admin()||is_deposit()){?>
- 
+
 <?php include_once('widgets/header.php'); ?>
 
 <?php
@@ -14,7 +14,7 @@ if (is_admin()||is_deposit()){?>
     {
         // Xóa key re-password ra khoi $data
         //unset($data['re-password']);
-         
+
         // Nếu insert thành công thì thông báo
         // và chuyển hướng về trang danh sách user
             ?>
@@ -36,29 +36,30 @@ if (is_admin()||is_deposit()){?>
     }
 ?>
 
- 
-<?php 
-        //  CODE XỬ LÝ PHÂN TRANG 
-        // Tìm tổng số records
-        $sql = "SELECT count(id_card) as counter from cards";
-        $result = db_get_row($sql);
-        $total_records = $result['counter'];
-         
-        // Lấy trang hiện tại
-        $current_page = input_get('page');
-         
-        // Lấy limit
-        $limit = 10;
-         
-        // Lấy link
-        $link = create_link(base_url('admin'), array(
-            'm' => 'user',
-            'a' => 'listcard',
-            'page' => '{page}'
-        ));
-        // Thực hiện phân trang
-        $paging = paging($link, $total_records, $current_page, $limit);
-        $sql = db_create_sql("SELECT * FROM cards {where} ORDER BY id_card ASC LIMIT {$paging['start']}, {$paging['limit']}");
+
+<?php
+        // //  CODE XỬ LÝ PHÂN TRANG
+        // // Tìm tổng số records
+        // $sql = "SELECT count(id_card) as counter from cards";
+        // $result = db_get_row($sql);
+        // $total_records = $result['counter'];
+        //
+        // // Lấy trang hiện tại
+        // $current_page = input_get('page');
+        //
+        // // Lấy limit
+        // $limit = 10;
+        //
+        // // Lấy link
+        // $link = create_link(base_url('admin'), array(
+        //     'm' => 'user',
+        //     'a' => 'listcard',
+        //     'page' => '{page}'
+        // ));
+        // // Thực hiện phân trang
+        // $paging = paging($link, $total_records, $current_page, $limit);
+        // $sql = db_create_sql("SELECT * FROM cards {where} ORDER BY id_card ASC LIMIT {$paging['start']}, {$paging['limit']}");
+        $sql = db_create_sql("SELECT * FROM cards");
         $users = db_get_list($sql);
         ?>
         <!DOCTYPE html>
@@ -66,18 +67,18 @@ if (is_admin()||is_deposit()){?>
     <head>
         <meta charset="UTF-8">
         <title>List user</title>
-   
+
         </head>
 
    <body>
 <div class="container">
 <center><h1>List of cards</h1></center>
-        <div class="controls">
+        <!-- <div class="controls">
             <form id="main-form" method="post" action="">
                 <div class="col-xs-6 col-md-4">
                  <input type="text" name="search" class="form-control" placeholder="ID members" />
                 </div>
-                
+
                     <td>
 
                         <input type="hidden" name="request_name" value="search" class="button" onclick="$('#main-form').submit()"/>
@@ -87,13 +88,13 @@ if (is_admin()||is_deposit()){?>
                     </td>
                 </tr>
             </form>
-        <br>
+        <br> -->
 <div class="controls">
 <a class="btn btn-primary btn-sm" role="button" style=" " href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'addcard')); ?>">Add</a>
-<a href="<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>" class="btn btn-primary btn-sm" role="button" >Back</a>
+<a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>" class="btn btn-primary btn-sm" role="button" >Back</a>
 </div>
 
-<table  class="table table-hover">
+<table  class="table table-hover datatables">
     <thead>
         <tr  class="info">
             <th>ID Card</th>
@@ -104,8 +105,8 @@ if (is_admin()||is_deposit()){?>
         </tr>
     </thead>
     <tbody>
-        <?php 
-        //  CODE HIỂN THỊ NGƯỜI DÙNG 
+        <?php
+        //  CODE HIỂN THỊ NGƯỜI DÙNG
         ?>
         <?php foreach ($users as $item) { ?>
         <tr class="danger">
@@ -126,12 +127,12 @@ if (is_admin()||is_deposit()){?>
     </tbody>
 
 </table>
- 
-<div class="btn-toolbar" role="toolbar">
-    <?php //  CODE HIỂN THỊ CÁC NÚT PHÂN TRANG 
+
+<!-- <div class="btn-toolbar" role="toolbar">
+    <?php //  CODE HIỂN THỊ CÁC NÚT PHÂN TRANG
     echo $paging['html'] ;
     ?>
-</div>
+</div> -->
 
 <script language="javascript">
     $(document).ready(function(){
@@ -141,18 +142,18 @@ if (is_admin()||is_deposit()){?>
             $(this).parent().submit();
             return false;
         });
- 
+
         // Nếu sự kiện submit form xảy ra thì hỏi người dùng có chắc không?
         $('.form-delete').submit(function(){
             if (!confirm('Bạn có chắc muốn xóa card này không?')){
                 return false;
             }
-             
+
             // Nếu người dùng chắc chắn muốn xóa thì ta thêm vào trong form delete
-            // một input hidden có giá trị là URL hiện tại, mục đích là giúp ở 
+            // một input hidden có giá trị là URL hiện tại, mục đích là giúp ở
             // trang delete sẽ lấy url này để chuyển hướng trở lại sau khi xóa xong
             $(this).append('<input type="hidden" name="redirect" value="'+window.location.href+'"/>');
-             
+
             // Thực hiện xóa
             return true;
         });

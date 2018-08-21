@@ -32,7 +32,7 @@ if (is_submit('update_pass'))
             ?>
             <script language="javascript">
                 alert('Thay đổi password thành công!');
-                 window.location = '<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>';
+                 window.location = '<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>';
             </script>
             <?php
             die();
@@ -75,7 +75,7 @@ if (is_submit('update_pass'))
 <center>
 <div class="controls">
     <a class="btn btn-primary btn-sm" role="button" onclick="$('#main-form').submit()" href="#">Save</a>
-    <a class="btn btn-primary btn-sm" role="button" href="<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>">Cancel</a></div>
+    <a class="btn btn-primary btn-sm" role="button" href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>">Cancel</a></div>
 </center>
 </div>
  </div>

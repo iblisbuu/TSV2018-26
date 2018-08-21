@@ -44,6 +44,15 @@
 		}
 		return $row;
 	}
+
+	// hàm lấy tổng số record
+	function db_get_num_rows($sql){
+		db_connect();
+		global $conn;
+		$result	= mysqli_query($conn, $sql);
+		return mysqli_num_rows($result);
+	}
+
 	// hàm thực thi câu truy vấn insert, update, delete
 	function db_execute($sql){
 		db_connect();

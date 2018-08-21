@@ -32,7 +32,7 @@ if (is_submit('update_pass'))
             ?>
             <script language="javascript">
                 alert('Sửa người dùng thành công!');
-                 window.location = '<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>';
+                 window.location = '<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>';
             </script>
             <?php
             die();

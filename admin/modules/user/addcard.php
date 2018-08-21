@@ -1,5 +1,5 @@
 <?php if (!defined('IN_SITE')) die ('The request not found'); ?>
- 
+
 <?php
 // Kiểm tra quyền, nếu không có quyền thì chuyển nó về trang logout
 if (is_admin()||is_deposit()){
@@ -10,7 +10,7 @@ require_once('database/user.php');
 
 // Nếu người dùng submit form
 if (is_submit('add_card'))
-{   
+{
 
     $id_member = input_post('id_member');
     //$error = db_idmember_validate($id_member);
@@ -42,17 +42,17 @@ if (is_submit('add_card'))
                 </script>
                 <?php
                 die();
-            
+
         }
     }
 }
 ?>
- 
+
 <?php include_once('widgets/header.php'); ?>
 
 <div class="container">
 <h1 align="center">Add Card</h1>
- 
+
 
 <center><form id="main-form" method="post" action="">
     <input type="hidden" name="request_name" value="add_card"/>
@@ -80,7 +80,7 @@ if (is_submit('add_card'))
 <br>
 <div class="controls">
     <a class="btn btn-primary btn-sm" onclick="$('#main-form').submit()" href="#">Add</a>
-    <a class="btn btn-primary btn-sm" href="<?php echo create_link(base_url('admin'), array('m' => 'common', 'a' => 'dashboard')); ?>">Back</a>
+    <a class="btn btn-primary btn-sm" href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>">Back</a>
 </div>
 </center>
 <br>

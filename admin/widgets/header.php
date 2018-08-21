@@ -13,12 +13,33 @@ $_SESSION['ss_user_token']['balance'] = $balance['balance'];
         <title>Quản lý admin</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-           <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
-      <link rel="stylesheet" href="style/css/style.css" >
-      <script src="jquery/jquery.js"></script>
-      <script src="bootstrap/js/bootstrap.min.js"></script>
-       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="style/css/style.css" >
+        <script src="jquery/jquery.js"></script>
+        <script src="bootstrap/js/bootstrap.min.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css" rel="stylesheet">
 
+        <!-- Notify.js -->
+        <script type="text/javascript" src="jquery/notify.min.js"></script>
+        <script type="text/javascript">
+          function callNotify(message,status) {
+            $.notify(message,status);
+          }
+        </script>
+
+        <!-- DataTable 1.10.16 -->
+        <link rel="stylesheet" type="text/css" href="././datatables/datatables.min.css"/>
+        <script type="text/javascript" src="././datatables/datatables.min.js"></script>
+        <!-- Using DataTables -->
+        <script type="text/javascript">
+        $(document).ready(function () {
+            $('.datatables').DataTable({
+            //   "language" : {
+            //     "url" : "//cdn.datatables.net/plug-ins/1.10.16/i18n/Vietnamese.json"
+            // }
+          });
+        });
+        </script>
 
     </head>
     <body>
@@ -46,6 +67,7 @@ $_SESSION['ss_user_token']['balance'] = $balance['balance'];
           <!-- <li class="active" style="background-color: #3374C2"><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'list')); ?>">User <span class="sr-only">(current)</span></a></li> -->
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>">Transactions</a></li>
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'listcard')); ?>">List Card</a></li>
+          <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'revenue')); ?>">Revenue Report</a></li>
           <li><a href="#">Logs</a></li>
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'editpass')); ?>">Change password</a></li>
         </ul>
