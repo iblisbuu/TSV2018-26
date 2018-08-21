@@ -1,41 +1,45 @@
 # serverREST
-Testing TSV2018-26
+
 
 # Query
 ## Check Service Staff
-* SELECT id_member as id_service FROM cards JOIN members ON cards.id_member = members.id_member WHERE id_Card = 'service' AND isService = '1';
+* SELECT id_member as id_service FROM cards JOIN members ON cards.id_member = members.id_member WHERE id_Card = 'service' AND is_Service_staff = 'yes';
 
 ## Check Members & Money
 * SELECT id_member as id_user, balance FROM cards JOIN members ON cards.id_member = members.id_member WHERE id_Card = 'card';
 
 ## Add Transaction
-* INSERT INTO payments (id_pay_member, id_collect_member, amountofmoney, type_payment) VALUES ('id_service','id_user',money,add/subtract);
+* INSERT INTO payments (id_pay_member, id_collect_member, amountofmoney, type_payment) VALUES ('id_service','id_user',money,-);
 
 ## Example
-### Requiment: User B1400702 add 20000VND from service 002555
+### Requiment: User 'student' pay '1000VND' for service staff 'Service'. student card = 01234 , service staff card = 12345
 ### URI: http://ipaddress:10110/transaction/add
 ### Client: Postman
 ### JSON Request:
-* {"id_pay_member":"01234","id_collect_member":"12345","amountofmoney":20000}
+* {
+	"id_pay_member":"01234",
+	"id_collect_member":"12345",
+	"amountofmoney":"1000"
+}
 ### JSON Response:
 * {
     "id_pay_member": "student",
     "id_collect_member": "service",
-    "amountofmoney": "20000",
+    "amountofmoney": "1000",
     "type_payment": "-",
     "message": "Done"
 }
 ### Commanpromt Response:
-* F:\Dropbox\NodeJS\serverREST>node server.js
+* C:\xampp\htdocs\serverREST>node server.js
 * Server listening on port 10110
 * Connected!
-* Da nhan
-* { id_pay_member: 'B1400702',
-  id_collect_member: '002555',
-  amountofmoney: '20000',
+* Receiced
+* { id_pay_member: 'student',
+  id_collect_member: 'service',
+  amountofmoney: '1000',
   type_payment: '-' }
-* Update thanh cong: nguoi nhan tien
-* Update thanh cong: nguoi thanh toan
+{ message: 'Update balance successfully' }
+
 
 # References
 * Client POSTMAN: https://www.getpostman.com/
