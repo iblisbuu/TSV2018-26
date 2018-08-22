@@ -1,5 +1,5 @@
 <?php if (!defined('IN_SITE')) die('The request not found'); ?>
-
+<?php date_default_timezone_set("Asia/Ho_Chi_Minh"); ?>
 <?php
 // Update balance every loading
 $id_current_member = get_current_id();
