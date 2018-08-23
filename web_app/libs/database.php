@@ -7,8 +7,8 @@
 	function db_connect(){
 		global $conn;
 		if (!$conn) {
-			$conn = mysqli_connect('localhost','root','','quickpayment2')
-			// $conn = mysqli_connect('localhost','root','mysql','quickpayment2')
+			// $conn = mysqli_connect('localhost','root','','quickpayment2')
+			$conn = mysqli_connect('localhost','root','mysql','quickpayment2')
 					or die ('Không thể kết nối CSDL');
 			mysqli_set_charset($conn, 'UTF-8');
 		}
