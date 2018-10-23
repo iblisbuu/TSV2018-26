@@ -10,7 +10,7 @@ $_SESSION['ss_user_token']['balance'] = $balance['balance'];
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Quản lý admin</title>
+        <title>Hệ thống thanh toán nhanh</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="bootstrap/css/bootstrap.min.css" >
@@ -68,7 +68,7 @@ $_SESSION['ss_user_token']['balance'] = $balance['balance'];
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>">Transactions</a></li>
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'listcard')); ?>">List Card</a></li>
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'revenue')); ?>">Revenue Report</a></li>
-          <li><a href="#">Logs</a></li>
+          <li><a href="#">List Device</a></li>
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'editpass')); ?>">Change password</a></li>
         </ul>
         <form class="navbar-form navbar-left">
