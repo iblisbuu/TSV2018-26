@@ -238,6 +238,7 @@ function db_updatepass_validate($data){
 }
 
 function db_addcard_validate($data){
+    $error = array();
     if (isset($data['id_card']) && $data['id_card'] == ''){
         $error['id_card'] = 'Bạn chưa nhập id card';
     }
@@ -270,6 +271,20 @@ function db_addcard_validate($data){
 
     if ($user['id_member'] != '' ) {
             $error['id_card'] = 'Id card đã được sử dụng';
+        }
+    }
+    return $error;
+}
+function db_adddevice_validate($data){
+    $error = array();
+    if (isset($data['key_device']) && $data['key_device'] == ''){
+        $error['key_device'] = 'Bạn chưa nhập Key Device';
+    }
+    if (!($error) && isset($data['key_device']) && $data['key_device']){
+        $sql = "SELECT count(key_device) as counter FROM Devices WHERE key_device='".addslashes($data['key_device'])."'";
+        $row = db_get_row($sql);
+        if ($row['counter'] > 0){
+            $error['key_device'] = 'Key Devices đã tồn tại';
         }
     }
     return $error;

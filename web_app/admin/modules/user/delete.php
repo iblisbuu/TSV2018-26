@@ -92,4 +92,38 @@
 	        }
 	    }
 	}
+	//delete Device
+	if (is_submit('delete_device'))
+	{
+	    // Lấy key_device và ép kiểu
+	    $key_device = input_post('key_device');
+	     echo $key_device;
+	    if ($key_device)
+	    {
+	    	//Lấy thông tin device
+	    	$device = db_get_row(db_create_sql('SELECT * FROM devices {where}', array(
+	            'key_device' => $key_device)));
+	        $sql = db_create_sql('DELETE FROM devices {where}', array(
+	            'key_device' => $key_device
+	        ));
+
+	 
+	        if (db_execute($sql)){
+	            ?>
+	            <script language="javascript">
+	                alert('Xóa thành công!');
+	                window.location = '<?php echo input_post('redirect'); ?>';
+	            </script>
+	            <?php
+	            }
+	        else{
+	            ?>
+	            <script language="javascript">
+	                alert('Xóa thất bại!');
+	                window.location = '<?php echo input_post('redirect'); ?>';
+	            </script>
+	            <?php
+	        }
+	    }
+	}
 ?>
