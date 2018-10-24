@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2018 at 05:03 PM
+-- Generation Time: Oct 24, 2018 at 02:58 PM
 -- Server version: 10.1.32-MariaDB
 -- PHP Version: 7.2.5
 
@@ -38,8 +38,26 @@ CREATE TABLE `cards` (
 --
 
 INSERT INTO `cards` (`id_card`, `id_member`) VALUES
-('12345', 'service'),
+('9657110', 'service'),
 ('01234', 'student');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `devices`
+--
+
+CREATE TABLE `devices` (
+  `key_device` varchar(30) NOT NULL,
+  `description` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `devices`
+--
+
+INSERT INTO `devices` (`key_device`, `description`) VALUES
+('asasa', 'asas');
 
 -- --------------------------------------------------------
 
@@ -66,11 +84,11 @@ CREATE TABLE `members` (
 --
 
 INSERT INTO `members` (`id_member`, `password`, `name`, `sex`, `dayofbirth`, `phone`, `ID_UG`, `ID_WP`, `balance`, `is_service_staff`, `email`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'nam', '2018-06-28', 3, '2', 'DB', 0, 'no', 'admin@gmail.com'),
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'nam', '2018-06-28', 3, '2', 'DB', 10000, 'no', 'admin@gmail.com'),
 ('deposit', '21232f297a57a5a743894a0e4a801fc3', 'deposit', 'nam', '2018-07-12', 2, '3', 'C2', 0, 'no', 'deposit@gmail.com'),
 ('iadmin', '21232f297a57a5a743894a0e4a801fc3', 'Initial Admin', 'nam', '1996-02-06', 1224099996, '1', 'DI', 0, NULL, NULL),
-('service', '21232f297a57a5a743894a0e4a801fc3', 'service', 'nu', '2017-06-01', 2, '4', 'B1', 128000, 'yes', 'service@gmail.com'),
-('student', '21232f297a57a5a743894a0e4a801fc3', 'student', 'nam', '2018-07-12', 3, '5', 'CN', 112000, 'no', 'student@gmail.com'),
+('service', '21232f297a57a5a743894a0e4a801fc3', 'service', 'nu', '2017-06-01', 2, '4', 'B1', 115500, 'yes', 'service@gmail.com'),
+('student', '21232f297a57a5a743894a0e4a801fc3', 'student', 'nam', '2018-07-12', 3, '5', 'CN', 580000, 'no', 'student@gmail.com'),
 ('student2', '21232f297a57a5a743894a0e4a801fc3', 'student2', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student2@gmail.com'),
 ('student3', '21232f297a57a5a743894a0e4a801fc3', 'student3', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student3@gmail.com'),
 ('student4', '21232f297a57a5a743894a0e4a801fc3', 'student4', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student4@gmail.com'),
@@ -118,7 +136,36 @@ INSERT INTO `payments` (`date_time`, `id_pay_member`, `id_collect_member`, `amou
 ('2018-07-10 14:07:09', 'student', 'service', 1000, '-'),
 ('2018-07-10 14:10:36', 'student', 'service', -120000, '-'),
 ('2018-07-10 14:15:26', 'student', 'service', 120000, '-'),
-('2018-07-10 14:55:56', 'student', 'service', 1000, '-');
+('2018-07-10 14:55:56', 'student', 'service', 1000, '-'),
+('2018-07-10 15:13:46', 'student', 'service', 1000, '-'),
+('2018-07-11 17:21:57', 'student', 'service', 1000, '-'),
+('2018-07-12 06:56:33', 'service', 'service', 177, '-'),
+('2018-07-12 06:56:49', 'service', 'service', 1000, '-'),
+('2018-07-12 07:03:46', 'service', 'service', 111, '-'),
+('2018-07-12 07:04:20', 'service', 'service', 111, '-'),
+('2018-07-12 07:05:16', 'service', 'service', 14, '-'),
+('2018-07-12 07:11:47', 'service', 'service', 425, '-'),
+('2018-07-12 07:19:03', 'service', 'service', 17, '-'),
+('2018-07-12 07:19:08', 'service', 'service', 1000, '-'),
+('2018-07-12 07:42:59', 'service', 'service', 11, '-'),
+('2018-07-12 07:45:06', 'service', 'service', 11, '-'),
+('2018-07-12 07:48:31', 'service', 'service', 41, '-'),
+('2018-07-12 07:53:00', 'service', 'service', 4, '-'),
+('2018-07-12 08:05:58', 'service', 'service', 181, '-'),
+('2018-07-12 08:09:03', 'service', 'service', 44, '-'),
+('2018-07-12 08:10:23', 'student', 'deposit', 200000, '+'),
+('2018-07-12 08:10:30', 'service', 'service', 44, '-'),
+('2018-07-12 08:12:01', 'service', 'service', 55, '-'),
+('2018-07-12 08:37:11', 'service', 'service', 369, '-'),
+('2018-07-12 08:41:00', 'service', 'service', 1000, '-'),
+('2018-07-12 08:48:24', 'service', 'service', 369, '-'),
+('2018-08-21 15:22:59', 'student', 'deposit', 20000, '+'),
+('2018-08-22 07:21:11', 'service', 'service', 1000, '-'),
+('2018-08-22 07:22:49', 'service', 'service', 1000, '-'),
+('2018-08-22 07:23:26', 'service', 'service', 1855, '-'),
+('2018-08-22 07:25:43', 'student', 'deposit', 50000, '+'),
+('2018-08-22 07:33:01', 'student', 'deposit', 200000, '+'),
+('2018-08-22 07:34:27', 'service', 'service', 1855, '-');
 
 -- --------------------------------------------------------
 
@@ -188,6 +235,12 @@ INSERT INTO `workplaces` (`ID_WP`, `description`) VALUES
 ALTER TABLE `cards`
   ADD PRIMARY KEY (`id_card`),
   ADD KEY `id_member` (`id_member`);
+
+--
+-- Indexes for table `devices`
+--
+ALTER TABLE `devices`
+  ADD PRIMARY KEY (`key_device`);
 
 --
 -- Indexes for table `members`
