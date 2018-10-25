@@ -35,7 +35,7 @@ if (is_submit('add_pay'))
     } else {
       session_set_lv2('pay', 'card', $id_card);
       echo '<script language="javascript">'."
-         alert('Người dùng chưa kích hoạt!');
+         alert('Thẻ chưa kích hoạt!');
          window.location = '".create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay_step_2'))."';
       </script>";
     }

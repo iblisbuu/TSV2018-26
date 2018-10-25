@@ -13,60 +13,46 @@ $error = array();
 require_once('database/user.php');
 
 // Nếu người dùng submit form
-if (is_submit('add_pay'))
-{
+if (is_submit('add_pay')) {
 
-    $id_member = input_post('id_pay_member');
+    $id_card = input_post('id_card');
+    $id_member = input_post('id_member');
     //$error = db_idmember_validate($id_member);
-        if (!$error)
-        {
-            // Lấy thông tin người dùng
-            $user = db_get_row(db_create_sql('SELECT * FROM members {where}', array(
-                'id_member' => $id_member
-            )));
-        }
-        error_reporting(0);
-        // Lấy danh sách dữ liệu từ form để update
-        $data = array(
-            'id_member'  	=> input_post('id_pay_member'),
-            $id_member      = input_post('id_pay_member'),
-            'balance' 		=> input_post('balance'),
-            $balance        = (input_post('balance')+$user['balance']),
-        );
-        //lay ngay h cua VN
-        date_default_timezone_set('Asia/Ho_Chi_Minh');
-        //Lấy danh sách dữ liệu từ form để inset
-        $is_data = array(
-            'date_time'         => date('Y-m-d H:i:s'),
-            'id_pay_member'     => input_post('id_pay_member'),
-            'id_collect_member' => input_post('id_collect_member'),
-            'amountofmoney'     => input_post('balance'),
-            'type_payment'      => '+',
-
-        );
-
-        // Thực hiện validate
-        $error = db_userpay_validate($data);
-        // Nếu validate không có lỗi
-        if (!$error)
-        {
-            // Xóa key re-password ra khoi $data
-            //unset($data['re-password']);
-
-            // Nếu insert thành công thì thông báo
-            // và chuyển hướng về trang danh sách user
-
-            if (db_insert('payments', $is_data) && db_execute(db_create_sql("UPDATE  members SET id_member='$id_member', balance = '$balance' {where}", array('id_member' => $id_member)))){
-                ?>
-                <script language="javascript">
-                    alert('Nạp thành công !');
-                    window.location = '<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay')); ?>';
-                </script>
-                <?php
-                die();
-
-        }
+    if (!$error) {
+      // Lấy thông tin người dùng
+      $user = db_get_row(db_create_sql('SELECT * FROM members {where}', array(
+        'id_member' => $id_member
+      )));
     }
+    error_reporting(0);
+
+    //Lấy danh sách dữ liệu từ form để inset
+    $is_data = array(
+        'id_card'         => $id_card,
+        'id_member'     => $id_member,
+    );
+    // Lấy danh sách dữ liệu từ form để update
+    if(count($user) > 0) {
+      if (db_insert('cards', $is_data)){
+        session_set_lv2('pay', 'user', $id_member);
+        echo '<script language="javascript">'."
+           window.location = '".create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay_step_3'))."';
+        </script>";
+        die();
+      }
+    } else {
+      echo '<script language="javascript">'."
+         alert('Đây là ai?');
+         window.location = '".create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay'))."';
+      </script>";
+    }
+    // if (db_insert('cards', $is_data)){
+    //   session_set_lv2('pay', 'user', $id_member);
+    //   echo '<script language="javascript">'."
+    //      window.location = '".create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay_step_3'))."';
+    //   </script>";
+    //   die();
+    // }
 }
 ?>
 
@@ -78,11 +64,12 @@ if (is_submit('add_pay'))
 
 <center><form id="main-form" method="POST">
     <input type="hidden" name="request_name" value="add_pay"/>
+    <input type="hidden" name="id_card" value="<?php echo session_get_lv2('pay', 'card');  ?>"/>
     <table cellspacing="0" cellpadding="0" class="form">
-        </tr>
+        <tr>
             <td width="200px"><sup style="color: red">(*)</sup>ID Member</td>
             <td>
-                <input type="text" name="id_pay_member" class="form-control" placeholder="ID Member" value="<?php echo input_post('id_member'); ?>" readonly />
+                <input type="text" name="id_member" class="form-control" placeholder="ID Member" value="<?php echo input_post('id_member'); ?>" />
                 <?php show_error($error, 'id_member'); ?>
             </td>
         </tr>
