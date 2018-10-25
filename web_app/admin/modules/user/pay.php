@@ -15,7 +15,13 @@ require_once('database/user.php');
 // Nếu người dùng submit form
 if (is_submit('add_pay'))
 {
-
+    if(input_post('id_card') == '') {
+      echo '<script language="javascript">'."
+         alert('Chưa nhập thẻ kìa bạn!');
+         window.location = '".create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay'))."';
+      </script>";
+    }
+    
     $id_card = input_post('id_card');
     //$error = db_idmember_validate($id_member);
     if (!$error) {
@@ -54,8 +60,7 @@ if (is_submit('add_pay'))
       <tr>
           <td width="200px"><sup style="color: red">(*)</sup>ID Card</td>
           <td>
-              <input type="text" name="id_card" class="form-control" placeholder="ID Card of Member" value="<?php echo input_post('id_member'); ?>" />
-              <?php show_error($error, 'id_card'); ?>
+              <input type="text" name="id_card" class="form-control" placeholder="ID Card of Member" required/>
           </td>
       </tr>
     </table>

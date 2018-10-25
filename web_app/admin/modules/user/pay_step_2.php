@@ -15,6 +15,13 @@ require_once('database/user.php');
 // Nếu người dùng submit form
 if (is_submit('add_pay')) {
 
+    if(input_post('id_member') == '') {
+      echo '<script language="javascript">'."
+         alert('Chưa nhập mã thành viên kìa bạn!');
+         window.location = '".create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay_step_2'))."';
+      </script>";
+    }
+
     $id_card = input_post('id_card');
     $id_member = input_post('id_member');
     //$error = db_idmember_validate($id_member);
