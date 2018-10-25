@@ -50,4 +50,3 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
-web_app/admin/widgets/header.php

@@ -68,11 +68,8 @@ $_SESSION['ss_user_token']['balance'] = $balance['balance'];
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'payment')); ?>">Transactions</a></li>
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'listcard')); ?>">List Card</a></li>
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'revenue')); ?>">Revenue Report</a></li>
-<<<<<<< HEAD
           <li><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'listdevice')); ?>">List Device</a></li>
-=======
           <li><a href="#">List Device</a></li>
->>>>>>> 1939b216a957a74fda7362af44a785bf8cbe10e6
           <li ><a href="<?php echo create_link(base_url('admin'), array('m' => 'user', 'a' => 'editpass')); ?>">Change password</a></li>
         </ul>
         <form class="navbar-form navbar-left">
