@@ -55,7 +55,7 @@ if (is_submit('add_device'))
             </td>
         </tr>
 
-            <td width="200px"><sup style="color: red">(*)</sup>Description</td>
+            <td width="200px"><sup style="color: red"></sup>Description</td>
             <td>
                 <input type="text" name="description" class="form-control" placeholder="Description" value="<?php echo input_post('description'); ?>" />
                 <?php show_error($error, 'description'); ?>

@@ -72,7 +72,7 @@ if (is_admin()){?>
 
    <body>
 <div class="container">
-<center><h1>List of Device</h1></center>
+<center><h1>List of Devices</h1></center>
         <!-- <div class="controls">
             <form id="main-form" method="post" action="">
                 <div class="col-xs-6 col-md-4">
