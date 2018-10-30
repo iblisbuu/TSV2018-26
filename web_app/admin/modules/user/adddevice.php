@@ -12,10 +12,13 @@ require_once('database/user.php');
 if (is_submit('add_device'))
 {
         // Lấy danh sách dữ liệu từ form để update
+
         $data = array(
             'key_device'  	=> input_post('key_device'),
             'description' 	=> input_post('description'),
+            'secret_key'    => md5(input_post('key_device'))
         );
+        var_dump($data);
         // Thực hiện validate
         $error = db_adddevice_validate($data);
         // Nếu validate không có lỗi

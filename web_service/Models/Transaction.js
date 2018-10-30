@@ -28,6 +28,9 @@ var Transaction={
 	checkUser:function(card,callback){
 		return db.query("SELECT * FROM cards JOIN members ON cards.id_member = members.id_member WHERE id_Card = ?",[card],callback);
 	},
+	checkDevice:function(key,callback){
+		return db.query("SELECT * FROM devices WHERE secret_key = ?",[key],callback);
+	},
 	getBalance:function(member,callback){
 		return db.query("SELECT * FROM members WHERE id_member = ?",[member],callback);
 	},
