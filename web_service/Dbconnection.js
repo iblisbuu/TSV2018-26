@@ -6,7 +6,7 @@ var connection = mysql.createConnection({
 //   database:'tsv2018_26'
 host:'localhost',
 user:'root',
- password:'',
+password:'',
 database:'quickpayment2'
  });
 
