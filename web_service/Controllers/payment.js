@@ -13,6 +13,11 @@ router.post('/add', function(req, res, next) {
 
   var amountofmoney = parseInt(received.amountofmoney);
   var type_payment = '-';
+  var date = new Date();
+  var current_hour = date.getHours();
+  var current_minute = date.getMinutes();
+  var current_second = date.getSeconds();
+  console.log(current_hour+':'+current_minute+':'+current_second);
 
   Transaction.checkDevice(received.secret_key, function(err, rows) {
     if (err) {
