@@ -1,13 +1,15 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.15.9
--- https://www.phpmyadmin.net
+-- version 4.8.0.1
+-- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Aug 22, 2018 at 03:38 PM
--- Server version: 5.6.37
--- PHP Version: 5.6.31
+-- Host: 127.0.0.1
+-- Generation Time: Oct 31, 2018 at 06:39 AM
+-- Server version: 10.1.32-MariaDB
+-- PHP Version: 7.2.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -26,7 +28,7 @@ SET time_zone = "+00:00";
 -- Table structure for table `cards`
 --
 
-CREATE TABLE IF NOT EXISTS `cards` (
+CREATE TABLE `cards` (
   `id_card` varchar(12) NOT NULL,
   `id_member` varchar(8) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -36,8 +38,31 @@ CREATE TABLE IF NOT EXISTS `cards` (
 --
 
 INSERT INTO `cards` (`id_card`, `id_member`) VALUES
-('12345', 'service'),
-('01234', 'student');
+('ABCZYX', NULL),
+('9657110', 'service'),
+('01234', 'student'),
+('12356', 'student3'),
+('ABC123XYZZ', 'student4'),
+('123567', 'student5');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `devices`
+--
+
+CREATE TABLE `devices` (
+  `key_device` varchar(30) NOT NULL,
+  `description` varchar(50) DEFAULT NULL,
+  `secret_key` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `devices`
+--
+
+INSERT INTO `devices` (`key_device`, `description`, `secret_key`) VALUES
+('ABCD', 'nha xe vpd', 'cb08ca4a7bb5f9683c19133a84872ca7');
 
 -- --------------------------------------------------------
 
@@ -45,7 +70,7 @@ INSERT INTO `cards` (`id_card`, `id_member`) VALUES
 -- Table structure for table `members`
 --
 
-CREATE TABLE IF NOT EXISTS `members` (
+CREATE TABLE `members` (
   `id_member` varchar(8) NOT NULL,
   `password` varchar(50) NOT NULL,
   `name` varchar(120) NOT NULL,
@@ -64,14 +89,14 @@ CREATE TABLE IF NOT EXISTS `members` (
 --
 
 INSERT INTO `members` (`id_member`, `password`, `name`, `sex`, `dayofbirth`, `phone`, `ID_UG`, `ID_WP`, `balance`, `is_service_staff`, `email`) VALUES
-('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'nam', '2018-06-28', 3, '2', 'DB', 0, 'no', 'admin@gmail.com'),
+('admin', '21232f297a57a5a743894a0e4a801fc3', 'admin', 'nam', '2018-06-28', 3, '2', 'DB', 10000, 'no', 'admin@gmail.com'),
 ('deposit', '21232f297a57a5a743894a0e4a801fc3', 'deposit', 'nam', '2018-07-12', 2, '3', 'C2', 0, 'no', 'deposit@gmail.com'),
 ('iadmin', '21232f297a57a5a743894a0e4a801fc3', 'Initial Admin', 'nam', '1996-02-06', 1224099996, '1', 'DI', 0, NULL, NULL),
-('service', '21232f297a57a5a743894a0e4a801fc3', 'service', 'nu', '2017-06-01', 2, '4', 'B1', 130000, 'yes', 'service@gmail.com'),
-('student', '21232f297a57a5a743894a0e4a801fc3', 'student', 'nam', '2018-07-12', 3, '5', 'CN', 108000, 'no', 'student@gmail.com'),
+('service', '21232f297a57a5a743894a0e4a801fc3', 'service', 'nu', '2017-06-01', 2, '4', 'B1', 114500, 'yes', 'service@gmail.com'),
+('student', '21232f297a57a5a743894a0e4a801fc3', 'student', 'nam', '2018-07-12', 3, '5', 'CN', 574000, 'no', 'student@gmail.com'),
 ('student2', '21232f297a57a5a743894a0e4a801fc3', 'student2', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student2@gmail.com'),
 ('student3', '21232f297a57a5a743894a0e4a801fc3', 'student3', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student3@gmail.com'),
-('student4', '21232f297a57a5a743894a0e4a801fc3', 'student4', 'nam', '2018-07-12', 3, '5', 'CN', 30000, 'no', 'student4@gmail.com'),
+('student4', '21232f297a57a5a743894a0e4a801fc3', 'student4', 'nam', '2018-07-12', 3, '5', 'CN', 40000, 'no', 'student4@gmail.com'),
 ('student5', '21232f297a57a5a743894a0e4a801fc3', 'student5', 'nam', '2018-07-14', 1, '5', 'C1', 50000, 'no', 'student5@gmail.com');
 
 -- --------------------------------------------------------
@@ -80,7 +105,7 @@ INSERT INTO `members` (`id_member`, `password`, `name`, `sex`, `dayofbirth`, `ph
 -- Table structure for table `payments`
 --
 
-CREATE TABLE IF NOT EXISTS `payments` (
+CREATE TABLE `payments` (
   `date_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `id_pay_member` varchar(8) NOT NULL,
   `id_collect_member` varchar(8) NOT NULL,
@@ -99,7 +124,62 @@ INSERT INTO `payments` (`date_time`, `id_pay_member`, `id_collect_member`, `amou
 ('2018-07-05 07:57:14', 'student', 'deposit', 100000, '+'),
 ('2018-07-10 05:38:21', 'student', 'service', 1000, '-'),
 ('2018-07-10 05:44:11', 'student', 'service', 1000, '-'),
-('2018-07-10 14:35:39', 'student', 'service', 20000, '-');
+('2018-07-10 12:45:53', 'student', 'service', 1000, '-'),
+('2018-07-10 12:51:36', 'student', 'service', 1000, '-'),
+('2018-07-10 12:52:58', 'student', 'service', 1000, '-'),
+('2018-07-10 12:57:51', 'student', 'service', 1000, '-'),
+('2018-07-10 12:59:03', 'student', 'service', 1000, '-'),
+('2018-07-10 13:04:27', 'student', 'service', 1000, '-'),
+('2018-07-10 13:05:07', 'student', 'service', 1000, '-'),
+('2018-07-10 13:05:57', 'student', 'service', 1000, '-'),
+('2018-07-10 13:06:24', 'student', 'service', 1000, '-'),
+('2018-07-10 13:10:26', 'student', 'service', 1000, '-'),
+('2018-07-10 13:11:24', 'student', 'service', 1000, '-'),
+('2018-07-10 13:13:58', 'student', 'service', 1000, '-'),
+('2018-07-10 13:15:58', 'student', 'service', 1000, '-'),
+('2018-07-10 14:06:43', 'student', 'service', 1000, '-'),
+('2018-07-10 14:07:09', 'student', 'service', 1000, '-'),
+('2018-07-10 14:10:36', 'student', 'service', -120000, '-'),
+('2018-07-10 14:15:26', 'student', 'service', 120000, '-'),
+('2018-07-10 14:55:56', 'student', 'service', 1000, '-'),
+('2018-07-10 15:13:46', 'student', 'service', 1000, '-'),
+('2018-07-11 17:21:57', 'student', 'service', 1000, '-'),
+('2018-07-12 06:56:33', 'service', 'service', 177, '-'),
+('2018-07-12 06:56:49', 'service', 'service', 1000, '-'),
+('2018-07-12 07:03:46', 'service', 'service', 111, '-'),
+('2018-07-12 07:04:20', 'service', 'service', 111, '-'),
+('2018-07-12 07:05:16', 'service', 'service', 14, '-'),
+('2018-07-12 07:11:47', 'service', 'service', 425, '-'),
+('2018-07-12 07:19:03', 'service', 'service', 17, '-'),
+('2018-07-12 07:19:08', 'service', 'service', 1000, '-'),
+('2018-07-12 07:42:59', 'service', 'service', 11, '-'),
+('2018-07-12 07:45:06', 'service', 'service', 11, '-'),
+('2018-07-12 07:48:31', 'service', 'service', 41, '-'),
+('2018-07-12 07:53:00', 'service', 'service', 4, '-'),
+('2018-07-12 08:05:58', 'service', 'service', 181, '-'),
+('2018-07-12 08:09:03', 'service', 'service', 44, '-'),
+('2018-07-12 08:10:23', 'student', 'deposit', 200000, '+'),
+('2018-07-12 08:10:30', 'service', 'service', 44, '-'),
+('2018-07-12 08:12:01', 'service', 'service', 55, '-'),
+('2018-07-12 08:37:11', 'service', 'service', 369, '-'),
+('2018-07-12 08:41:00', 'service', 'service', 1000, '-'),
+('2018-07-12 08:48:24', 'service', 'service', 369, '-'),
+('2018-08-21 15:22:59', 'student', 'deposit', 20000, '+'),
+('2018-08-22 07:21:11', 'service', 'service', 1000, '-'),
+('2018-08-22 07:22:49', 'service', 'service', 1000, '-'),
+('2018-08-22 07:23:26', 'service', 'service', 1855, '-'),
+('2018-08-22 07:25:43', 'student', 'deposit', 50000, '+'),
+('2018-08-22 07:33:01', 'student', 'deposit', 200000, '+'),
+('2018-08-22 07:34:27', 'service', 'service', 1855, '-'),
+('2018-10-25 15:47:56', 'service', 'deposit', 0, '+'),
+('2018-10-27 14:27:22', 'student4', 'deposit', 10000, '+'),
+('2018-10-30 14:36:43', 'service', 'service', 1000, '-'),
+('2018-10-30 14:42:58', 'student', 'service', 1000, '-'),
+('2018-10-30 16:08:41', 'student', 'service', 1000, '-'),
+('2018-10-30 16:09:06', 'student', 'service', 1000, '-'),
+('2018-10-30 16:21:00', 'student', 'service', 1000, '-'),
+('2018-10-30 16:21:47', 'student', 'service', 1000, '-'),
+('2018-10-30 16:23:00', 'student', 'service', 1000, '-');
 
 -- --------------------------------------------------------
 
@@ -107,7 +187,7 @@ INSERT INTO `payments` (`date_time`, `id_pay_member`, `id_collect_member`, `amou
 -- Table structure for table `usergroups`
 --
 
-CREATE TABLE IF NOT EXISTS `usergroups` (
+CREATE TABLE `usergroups` (
   `ID_UG` varchar(8) NOT NULL,
   `Name_UG` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -129,7 +209,7 @@ INSERT INTO `usergroups` (`ID_UG`, `Name_UG`) VALUES
 -- Table structure for table `workplaces`
 --
 
-CREATE TABLE IF NOT EXISTS `workplaces` (
+CREATE TABLE `workplaces` (
   `ID_WP` varchar(8) NOT NULL,
   `description` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -169,6 +249,12 @@ INSERT INTO `workplaces` (`ID_WP`, `description`) VALUES
 ALTER TABLE `cards`
   ADD PRIMARY KEY (`id_card`),
   ADD KEY `id_member` (`id_member`);
+
+--
+-- Indexes for table `devices`
+--
+ALTER TABLE `devices`
+  ADD PRIMARY KEY (`key_device`);
 
 --
 -- Indexes for table `members`
@@ -221,6 +307,7 @@ ALTER TABLE `members`
 ALTER TABLE `payments`
   ADD CONSTRAINT `payments_ibfk_1` FOREIGN KEY (`id_pay_member`) REFERENCES `members` (`id_member`) ON UPDATE CASCADE,
   ADD CONSTRAINT `payments_ibfk_2` FOREIGN KEY (`id_collect_member`) REFERENCES `members` (`id_member`) ON UPDATE CASCADE;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
