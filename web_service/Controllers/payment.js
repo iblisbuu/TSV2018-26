@@ -13,11 +13,14 @@ router.post('/add', function(req, res, next) {
 
   var amountofmoney = parseInt(received.amountofmoney);
   var type_payment = '-';
-  var date = new Date();
-  var current_hour = date.getHours();
-  var current_minute = date.getMinutes();
-  var current_second = date.getSeconds();
-  console.log(current_hour+':'+current_minute+':'+current_second);
+  // var date = new Date();
+  // var current_year = date.getYear();
+  // var current_month = date.getMonths();
+  // var current_day = date.getDays();
+  // var current_hour = date.getHours();
+  // var current_minute = date.getMinutes();
+  // var current_second = date.getSeconds();
+  // console.log(current_year+'-'+current_month+'-'+current_day+' '+current_hour+':'+current_minute+':'+current_second);
 
   Transaction.checkDevice(received.secret_key, function(err, rows) {
     if (err) {
