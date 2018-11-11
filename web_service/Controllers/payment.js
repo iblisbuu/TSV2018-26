@@ -72,10 +72,10 @@ router.post('/add', function(req, res, next) {
                           });
                         } else {
                           console.log({
-                            "message": "No enough money!"
+                            "message": "Not enough money!"
                           });
                           res.json({
-                            "message": "No enough money!"
+                            "message": "Not enough money!"
                           });
                         }
                       }
@@ -92,10 +92,10 @@ router.post('/add', function(req, res, next) {
               });
             } else {
               console.log({
-                "message": "The service does not exist!"
+                "message": "The service staff does not exist!"
               });
               res.json({
-                "message": "The service does not exist!"
+                "message": "The service staff does not exist!"
               });
             }
           }
