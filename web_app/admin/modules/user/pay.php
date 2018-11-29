@@ -17,12 +17,12 @@ if (is_submit('add_pay'))
 {
     if(input_post('id_card') == '') {
       echo '<script language="javascript">'."
-         alert('Chưa nhập thẻ kìa bạn!');
+         alert('Chưa nhập thẻ!');
          window.location = '".create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay'))."';
       </script>";
     }
     
-    $id_card = input_post('id_card');
+    $id_card = (int)input_post('id_card');
     //$error = db_idmember_validate($id_member);
     if (!$error) {
       // Lấy thông tin người dùng

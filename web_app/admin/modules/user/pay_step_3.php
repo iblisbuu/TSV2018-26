@@ -67,7 +67,7 @@ if (is_submit('add_pay'))
             <td><sup style="color: red">(*)</sup>Amount of Money </td>
             <td>
                 <select name="balance" class="form-control">
-                    <option value="">-- Chọn Mệnh Giá --</option>
+                    <!-- <option value="">-- Chọn Mệnh Giá --</option> -->
                     <option value="10000"     <?php echo (input_post('balance') == '10000')  ? 'selected' : ''; ?>>10,000 VND</option>
                     <option value="20000"     <?php echo (input_post('balance') == '20000')  ? 'selected' : ''; ?>>20,000 VND</option>
                     <option value="50000"     <?php echo (input_post('balance') == '50000')  ? 'selected' : ''; ?>>50,000 VND</option>

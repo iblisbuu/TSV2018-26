@@ -17,7 +17,7 @@ if (is_submit('add_pay')) {
 
     if(input_post('id_member') == '') {
       echo '<script language="javascript">'."
-         alert('Chưa nhập mã thành viên kìa bạn!');
+         alert('Chưa nhập mã thành viên!');
          window.location = '".create_link(base_url('admin'), array('m' => 'user', 'a' => 'pay_step_2'))."';
       </script>";
     }

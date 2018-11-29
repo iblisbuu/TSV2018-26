@@ -76,7 +76,7 @@ function db_user_validate($data){
 
     //WP
      if (isset($data['ID_WP']) && !in_array($data['ID_WP'], array('KH' ,'KT' ,'MT' ,'XH' ,'DB' ,'DI' ,'CN' ,'TS' ,'NN' ,'SH' ,'MTN' ,'HA' ,'HL' ,'NDH','A1' ,'A3' ,'B1' ,'C1' ,'C2'))){
-        $error['ID_WP'] = 'Word Places bạn chọn không tồn tại';
+        $error['ID_WP'] = 'Work Places bạn chọn không tồn tại';
     }
      
     /* VALIDATE LIÊN QUAN CSDL */
@@ -156,7 +156,7 @@ function db_updateuser_validate($data){
 
     //WP
      if (isset($data['ID_WP']) && !in_array($data['ID_WP'], array('KH' ,'KT' ,'MT' ,'XH' ,'DB' ,'DI' ,'CN' ,'TS' ,'NN' ,'SH' ,'MTN' ,'HA' ,'HL' ,'NDH','A1' ,'A3' ,'B1' ,'C1' ,'C2'))){
-        $error['ID_WP'] = 'Word Places bạn chọn không tồn tại';
+        $error['ID_WP'] = 'Work Places bạn chọn không tồn tại';
     }
      
     /* VALIDATE LIÊN QUAN CSDL */
